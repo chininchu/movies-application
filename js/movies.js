@@ -1,4 +1,6 @@
-window.onload
+window.onload = (event) => {
+   return swit;
+};
 
 
 // fetch('https://online-movie-database.p.rapidapi.com/auto-complete?q=id', {

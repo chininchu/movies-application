@@ -1,9 +1,40 @@
 {
   "movies": [
     {
-      "id": 1,
-      "title": "Shrek",
-      "rating": 5
+      "title": "The GodFather",
+      "genre": "Crime",
+      "rating": "8.2/10",
+      "imgUrl": "https://www.imdb.com/title/tt0068646/mediaviewer/rm746868224/?ref_=tt_ov_i"
+    },
+    {
+      "title": "The Dark Knight",
+      "genre": "Action",
+      "rating": "9.0",
+      "imgUrl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm4023877632/?ref_=tt_ov_i"
+    },
+    {
+      "title": "Pulp Fiction",
+      "genre": "Crime",
+      "rating": "8.9",
+      "imgUrl": "https://www.imdb.com/title/tt0110912/mediaviewer/rm1959546112/?ref_=tt_ov_i"
+    },
+    {
+      "title": "Forrest Gump",
+      "genre": "Romance",
+      "rating": "8.8",
+      "imgUrl": "https://www.imdb.com/title/tt0109830/mediaviewer/rm1954748672/?ref_=tt_ov_i"
+    },
+    {
+      "title": "Saving Private Ryan",
+      "genre": "War",
+      "rating": "8.6",
+      "imgUrl": "https://www.imdb.com/title/tt0120815/mediaviewer/rm1924732160/?ref_=tt_ov_i"
+    },
+    {
+      "title": "Toy Story",
+      "genre": "Animation",
+      "rating": "8.3",
+      "imgUrl": "https://www.imdb.com/title/tt0114709/mediaviewer/rm3813007616/?ref_=tt_ov_i"
     }
   ]
 }

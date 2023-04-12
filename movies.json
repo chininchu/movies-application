@@ -4,6 +4,16 @@
       "id": 1,
       "title": "json-server",
       "author": "typicode"
+    },
+    {
+      "title": "Lion King",
+      "genre": "Test",
+      "id": 2
+    },
+    {
+      "title": null,
+      "genre": null,
+      "id": 3
     }
   ],
   "comments": [

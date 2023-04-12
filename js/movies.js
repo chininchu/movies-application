@@ -27,12 +27,26 @@ $(document).ready(function (){
 //
 // myMovies()
 
+
+function getMovieId(data){
+fetch( 'http://localhost:3000/movies', {
+    // establish the method, GET is the default method.
+})
+    .then(resp => resp.json())
+    .then(data => {return data.length-1 })
+    .catch(error => console.log(error));
+}
+
 function addMovies() {
     let title = prompt("What is the title of your post?");
-    let genre = prompt("Who is the genre of this post?");
-    return {title, genre};
+    let id = getMovieId()
+    let rating = prompt("Who is the rating of this post?");
+    let genre = prompt("What is the genre?")
+    let imgUrl= prompt("place image here")
+    return {title,id,genre,rating,imgUrl};
 }
-fetch("http://localhost:3000/movies", {
+
+fetch( 'http://localhost:3000/movies', {
     // establish the method, GET is the default method.
     method: 'POST',
     headers: {

@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,26 +6,28 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="css/movies.css" rel="stylesheet">
     <title>Movies</title>
     <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script src="js/keys.js"></script>
     <script src="js/movies.js"></script>
-
 </head>
 <body>
-
 <div id="loading">
-    <img id="loadingimg" src="img/popcorn%20gif%202.gif" alt="page loading">
+    <img id="loadingimg" src="img/popcorn gif 2.gif" alt="page loading">
 </div>
 
+<h1>add movie</h1>
+<form id="searchForm">
+    <label for="title"></label>
+    <input name="title" id="title" type="text" placeholder="title">
+    <label for="genre"></label>
+    <input name="genre" id="genre" type="text" placeholder="genre">
+    <label for="rating"></label>
+    <input name="rating" id="rating" type="text" placeholder="rating">
+    <label for="image"></label>
+    <input name="image" id="image" type="text" placeholder="image here">
 
-
-
-
-
-
-
+    <button id="addBtn" type="button" class="btn btn-primary">Submit</button>
+</form>
 
 
 

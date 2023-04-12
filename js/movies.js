@@ -1,6 +1,16 @@
 $(document).ready(function (){
-    $('.loading').hide()
+    setTimeout(function () {
+        $('#loading').hide()
+    }, 2000);
+    // $('.loading').hide()
+    $("#addBtn").click(function (event){
+        event.preventDefault();
+        // const formData = new FormData(form);
+        // const data = Object.fromEntries(formData);
+        postMovies()
+    })
 })
+
 
 
 // function myMovies() {
@@ -28,87 +38,42 @@ $(document).ready(function (){
 // myMovies()
 
 
-function getMovieId(data){
-fetch( 'http://localhost:3000/movies', {
-    // establish the method, GET is the default method.
-})
-    .then(resp => resp.json())
-    .then(data => {return data.length-1 })
-    .catch(error => console.log(error));
-}
-
-function addMovies() {
-    let title = prompt("What is the title of your post?");
-    let id = getMovieId()
-    let rating = prompt("Who is the rating of this post?");
-    let genre = prompt("What is the genre?")
-    let imgUrl= prompt("place image here")
-    return {title,id,genre,rating,imgUrl};
-}
-
-fetch( 'http://localhost:3000/movies', {
-    // establish the method, GET is the default method.
-    method: 'POST',
-    headers: {
-        // the server needs to know what format we are sending data in.
-        'Content-Type': 'application/json'
-    },
-    // convert JS object to JSON object
-    body: JSON.stringify(addMovies())
-})
-    .then(resp => resp.json())
-    .then(data => console.log(data))
-    .catch(error => console.log(error));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function addMovies(){
-//     fetch('http://localhost:3000/movies',{
-//         method:'POST'
-//     })
-//         .then(response => response.json())
-//         .then(data => console.log(data))
-//         .catch(error => console.error(error));
-// }
-//
-// function deleteMovies(){
+// function getMovieId(data){
 //     fetch('http://localhost:3000/movies', {
-//         method:'DELETE',
-//     })
-//         .then(response => response.json())
-//         .then(data => console.log())
-//         .catch(error => console.error(error));
-// }
-//
-//
-// function editMovies(id){
-//     return fetch(`http://localhost:3000/posts/${id}`, {
-//         method: 'PATCH',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(editedMovies)
+//         // establish the method, GET is the default method.
 //     })
 //         .then(resp => resp.json())
-//         .then(data => data)
-//         .catch(error => console.error(error));
+//         .then(data => {return data.length-1 })
+//         .catch(error => console.log(error));
 // }
+
+
+
+
+function postMovies() {
+    fetch('http://localhost:3000/movies', {
+        // establish the method, GET is the default method.
+        method: 'POST',
+        headers: {
+            // the server needs to know what format we are sending data in.
+            'Content-Type': 'application/json'
+        },
+        // convert JS object to JSON object
+        body: JSON.stringify({
+            title: $('#title').val(),
+            genre: $('#genre').val(),
+            rating: $('#rating').val(),
+            imgUrl: $('#image').val(),
+
+        })
+    })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(error => console.log(error));
+}
+
+
+
+
 
 

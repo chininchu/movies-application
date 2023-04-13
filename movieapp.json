@@ -41,48 +41,6 @@
       "genre": "Animation",
       "rating": "8.3",
       "imgUrl": "https://www.imdb.com/title/tt0114709/mediaviewer/rm3813007616/?ref_=tt_ov_i"
-    },
-    {
-      "title": "fjk",
-      "id": 7,
-      "genre": "rk",
-      "rating": "fk",
-      "imgUrl": "kk"
-    },
-    {
-      "title": "jj",
-      "id": 8,
-      "genre": "jj",
-      "rating": "jjj",
-      "imgUrl": "jj"
-    },
-    {
-      "title": "kjk",
-      "id": 9,
-      "genre": "jj",
-      "rating": "kkk",
-      "imgUrl": "jj"
-    },
-    {
-      "title": "nn",
-      "genre": "kk",
-      "rating": "jj",
-      "imgUrl": "kk",
-      "id": 10
-    },
-    {
-      "title": "hh",
-      "genre": "jj",
-      "rating": "jj",
-      "imgUrl": "jk",
-      "id": 11
-    },
-    {
-      "title": "Tittle",
-      "genre": "Tittl1",
-      "rating": "9",
-      "imgUrl": "Image",
-      "id": 12
     }
   ]
 }

@@ -30,19 +30,29 @@
         }), 1500)
 
 
+    // Currently working on implementing the Grid system
+
     function myMovies() {
         let html = ''
         fetch('http://localhost:3000/movies')
             .then(response => response.json())
             .then(movieData => {
                 movieData.map(data => {
-                    html += `<h1> ${data.id} </h1>`
-                    html += `<h1> ${data.title} </h1>`
-                    html += `<h1> ${data.rating} </h1>`
-                    html += `<h1> ${data.genre} </h1>`
-                    html += `<h1> ${data.imgUrl} </h1>`
-                    html += ` <div class="btn-group" role="group" aria-label="Basic example">`
-                    html += ` <form id="editForm">`
+                    html += `<div class="row">`
+
+                    html += `<div class="row">`
+                    html += `<h2 class="col"> ${data.id} </h2>`
+                    html += `<h1 class="col"> ${data.title} </h1>`
+                    html += `<h3 class="col"> ${data.rating} </h3>`
+                    html += `<h3 class="col"> ${data.genre} </h3>`
+                    html += `<h3 class="col"> ${data.imgUrl} </h3>`
+
+
+                    html += `</div>`
+
+
+                    html += ` <div class="row">`
+                    html += ` <form class="col" id="editForm">`
                     html += ` <label for="edittitle"></label>`
                     html += ` <input name="edittile" id="edittitle" type="text" placeholder="title">`
                     html += ` <label for="editgenre"></label>`
@@ -53,7 +63,12 @@
                     html += ` <input name="editimage" id="editimage" type="text" placeholder="image here">`
                     html += `  <button id="${data.id}" type="button" class="editBtn btn-primary">Edit</button>`
                     html += `  <button id="${data.id}" type="button" class="deleteBtn btn-primary">Delete</button>`
+                    html += ` </form>`
                     html += `  </div>`
+
+
+                    html += `</div>`
+
                 })
                 $('.movie-title').html(html)
             })

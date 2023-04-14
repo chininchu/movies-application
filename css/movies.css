@@ -1,4 +1,12 @@
-img{
+* {
+    box-sizing: content-box;
+    width: 100%;
+
+
+}
+
+
+img {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -6,3 +14,42 @@ img{
     height: 300px;
     width: 400px;
 }
+
+
+form {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+span {
+
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

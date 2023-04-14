@@ -4,21 +4,29 @@
 
 
 }
-
-
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 10em;
-    height: 300px;
-    width: 400px;
+#movieimg{
+    width: 200px;
+    height : 300px;
+    margin-top: 5rem;
+    /*margin: 20px;*/
+    /*margin-bottom: 3rem;*/
 }
+
+
+/*.loading {*/
+/*    display: block;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin-top: 10em;*/
+/*    height: 300px;*/
+/*    width: 400px;*/
+/*}*/
 
 
 form {
     display: flex;
     flex-direction: column;
+    margin-top: 5rem;
 
 
 }
@@ -28,11 +36,20 @@ span {
     display: none;
 }
 
+#searchForm{
+    margin-top: 4rem;
+    width: 700px;
+    margin-left: 41rem;
+    margin-bottom: 3rem;
+}
+.editForm{
+   margin-right: 10em;
+}
 
-
-
-
-
+.d-flex{
+    margin-left: 2rem;
+    margin-bottom: 2em;
+}
 
 
 

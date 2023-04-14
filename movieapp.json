@@ -1,46 +1,46 @@
 {
   "movies": [
     {
-      "id": 1,
-      "title": "The GodFather",
-      "genre": "Crime",
-      "rating": "8.2/10",
-      "imgUrl": "https://www.imdb.com/title/tt0068646/mediaviewer/rm746868224/?ref_=tt_ov_i"
-    },
-    {
       "id": 2,
       "title": "The Dark Knight",
       "genre": "Action",
-      "rating": "9.0",
-      "imgUrl": "https://www.imdb.com/title/tt0468569/mediaviewer/rm4023877632/?ref_=tt_ov_i"
+      "rating": "9.0/10",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_.jpg"
     },
     {
       "id": 3,
       "title": "Pulp Fiction",
       "genre": "Crime",
-      "rating": "8.9",
-      "imgUrl": "https://www.imdb.com/title/tt0110912/mediaviewer/rm1959546112/?ref_=tt_ov_i"
+      "rating": "8.9/10",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
     },
     {
       "id": 4,
       "title": "Forrest Gump",
       "genre": "Romance",
-      "rating": "8.8",
-      "imgUrl": "https://www.imdb.com/title/tt0109830/mediaviewer/rm1954748672/?ref_=tt_ov_i"
+      "rating": "8.8/10",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_.jpg"
     },
     {
       "id": 5,
       "title": "Saving Private Ryan",
       "genre": "War",
-      "rating": "8.6",
-      "imgUrl": "https://www.imdb.com/title/tt0120815/mediaviewer/rm1924732160/?ref_=tt_ov_i"
+      "rating": "8.6/10",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_.jpg"
     },
     {
       "id": 6,
       "title": "Toy Story",
       "genre": "Animation",
-      "rating": "8.3",
-      "imgUrl": "https://www.imdb.com/title/tt0114709/mediaviewer/rm3813007616/?ref_=tt_ov_i"
+      "rating": "8.3/10",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BMDU2ZWJlMjktMTRhMy00ZTA5LWEzNDgtYmNmZTEwZTViZWJkXkEyXkFqcGdeQXVyNDQ2OTk4MzI@._V1_.jpg"
+    },
+    {
+      "title": "Frozen",
+      "genre": "anime",
+      "rating": "9/10",
+      "imgUrl": "https://m.media-amazon.com/images/M/MV5BMTQ1MjQwMTE5OF5BMl5BanBnXkFtZTgwNjk3MTcyMDE@._V1_.jpg",
+      "id": 7
     }
   ]
 }

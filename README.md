@@ -1,4 +1,4 @@
-# Movies Application 
+# Movies Application
 
 Command to Run json-server:
 

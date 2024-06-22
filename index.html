@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Watchlist - Search</title>
+    <link rel="stylesheet" href="css/movies.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Movie Watchlist</h1>
+      <nav>
+        <a href="index.html" class="active">Search</a>
+        <a href="watchlist.html">My Watchlist</a>
+      </nav>
+    </header>
+    <main>
+      <section id="search-section">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for a movie..."
+        />
+        <button id="search-btn">Search</button>
+      </section>
+      <section id="movie-list" class="movie-container"></section>
+    </main>
+    <script src="js/keys.js"></script>
+    <script src="js/movies.js"></script>
+  </body>
+</html>

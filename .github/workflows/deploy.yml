@@ -24,9 +24,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Print OMDB API Key
+        run: echo ${{ secrets.OMDB_API_KEY }}
+
       - name: Replace API Key
         run: |
           sed -i 's/const API_KEY = "YOUR_API_KEY_PLACEHOLDER"/const API_KEY = "${{ secrets.OMDB_API_KEY }}"/g' js/keys.js
+
+      - name: Debug API Key Replacement
+        run: cat js/keys.js
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

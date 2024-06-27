@@ -1,5 +1,9 @@
 "use strict";
 
+import "../css/movies.css"; // Add this line
+
+// Rest of your JavaScript code
+
 const watchlistSection = document.getElementById("watchlist-section");
 
 async function loadWatchlist() {

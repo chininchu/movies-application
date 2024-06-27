@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.get("/api/search", async (req, res) => {
   try {
@@ -38,14 +38,16 @@ app.get("/api/movie/:id", async (req, res) => {
   }
 });
 
-// Serve index.html for the root route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
-// Serve watchlist.html for the /watchlist route
 app.get("/watchlist", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "watchlist.html"));
+  res.sendFile(path.join(__dirname, "dist", "watchlist.html"));
+});
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 app.listen(port, () => {

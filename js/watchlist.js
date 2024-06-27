@@ -1,5 +1,11 @@
+"use strict";
+
 // watchlist.js
 const watchlistSection = document.getElementById("watchlist-section");
+
+function getApiKey() {
+  return API_KEY;
+}
 
 async function loadWatchlist() {
   const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
@@ -16,7 +22,7 @@ async function loadWatchlist() {
   try {
     for (const imdbID of watchlist) {
       const response = await fetch(
-        `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`
+        `https://www.omdbapi.com/?apikey=${getApiKey()}&i=${imdbID}`
       );
       const movie = await response.json();
       displayMovie(movie);

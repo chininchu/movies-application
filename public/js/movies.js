@@ -1,13 +1,8 @@
 "use strict";
 
-// movies.js
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const movieList = document.getElementById("movie-list");
-
-function getApiKey() {
-  return API_KEY;
-}
 
 function showLoadingIndicator() {
   movieList.innerHTML = `<div class="loading">Loading...</div>`;
@@ -28,7 +23,7 @@ async function searchMovies() {
 
   try {
     const response = await fetch(
-      `https://www.omdbapi.com/?apikey=${getApiKey()}&s=${searchTerm}`
+      `/api/search?s=${encodeURIComponent(searchTerm)}`
     );
     const data = await response.json();
 
@@ -45,6 +40,8 @@ async function searchMovies() {
 
   hideLoadingIndicator();
 }
+
+// Rest of the file remains the same...
 
 function displayMovies(movies) {
   movieList.innerHTML = "";

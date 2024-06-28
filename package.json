@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "build": "webpack --mode production",
-    "dev": "webpack serve --mode development"
+    "dev": "webpack serve --open --mode development"
   },
   "dependencies": {
     "axios": "^0.21.4",

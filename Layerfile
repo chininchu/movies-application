@@ -10,11 +10,10 @@ RUN npm install
 RUN npm run build
 
 # Set the OMDB API key as an environment variable
-ENV OMDB_API_KEY=$OMDB_API_KEY
-ENV NODE_ENV=production
+SECRET ENV OMDB_API_KEY
 
-# Check if the API key is set
-RUN echo "OMDB API Key: $OMDB_API_KEY"
+# Verify the API key is set (this will not print the actual key)
+RUN echo "OMDB API Key is set: $([[ -n $OMDB_API_KEY ]] && echo 'Yes' || echo 'No')"
 
 RUN BACKGROUND npm start
 

@@ -1,0 +1,21 @@
+# This is a webapp.io configuration for a Node.js application with Webpack
+FROM vm/ubuntu:18.04
+
+# Install Node.js (using a more recent version)
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+RUN apt-get install -y nodejs
+
+# Copy all files from your repository to the VM
+COPY . .
+
+# Install project dependencies
+RUN npm install
+
+# Build the application (assuming you have a build script in package.json)
+RUN npm run build
+
+# Start the server (assuming your start script runs the server)
+RUN BACKGROUND npm start
+
+# Expose the website (adjust the port if your server uses a different one)
+EXPOSE WEBSITE http://localhost:3000

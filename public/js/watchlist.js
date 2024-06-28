@@ -1,8 +1,6 @@
 "use strict";
 
-import "../css/movies.css"; // Add this line
-
-// Rest of your JavaScript code
+import "../css/movies.css";
 
 const watchlistSection = document.getElementById("watchlist-section");
 
@@ -33,24 +31,22 @@ async function loadWatchlist() {
   document.querySelector(".loading")?.remove();
 }
 
-// Rest of the file remains the same...
-
 function displayMovie(movie) {
   const movieElement = document.createElement("div");
   movieElement.classList.add("movie-item");
   movieElement.innerHTML = `
-        <img src="${
-          movie.Poster !== "N/A" ? movie.Poster : "placeholder.png"
-        }" alt="${movie.Title}" class="movie-img">
-        <div class="movie-info">
-            <h2>${movie.Title}</h2>
-            <p>Year: ${movie.Year}</p>
-            <p>Director: ${movie.Director}</p>
-            <button class="remove-from-watchlist" data-imdbid="${
-              movie.imdbID
-            }">Remove from Watchlist</button>
-        </div>
-    `;
+    <img src="${
+      movie.Poster !== "N/A" ? movie.Poster : "placeholder.png"
+    }" alt="${movie.Title}" class="movie-img">
+    <div class="movie-info">
+      <h2>${movie.Title}</h2>
+      <p>Year: ${movie.Year}</p>
+      <p>Director: ${movie.Director}</p>
+      <button class="remove-from-watchlist" data-imdbid="${
+        movie.imdbID
+      }">Remove from Watchlist</button>
+    </div>
+  `;
   watchlistSection.appendChild(movieElement);
 
   movieElement

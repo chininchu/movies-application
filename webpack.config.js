@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
@@ -7,8 +8,9 @@ module.exports = {
     watchlist: "./public/js/watchlist.js",
   },
   output: {
-    filename: "[name].bundle.js",
+    filename: "js/[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
   },
   module: {
     rules: [
@@ -24,27 +26,31 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      chunks: ["movies"],
       filename: "index.html",
+      chunks: ["movies"],
     }),
     new HtmlWebpackPlugin({
       template: "./public/watchlist.html",
-      chunks: ["watchlist"],
       filename: "watchlist.html",
+      chunks: ["watchlist"],
+    }),
+    new MiniCssExtractPlugin({
+      filename: "css/[name].css",
     }),
   ],
   devServer: {
-    static: path.join(__dirname, "public"),
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
     compress: true,
     port: 9000,
-    historyApiFallback: true,
     proxy: {
       "/api": "http://localhost:3000",
     },

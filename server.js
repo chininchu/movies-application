@@ -34,12 +34,31 @@ app.get("/api/search", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     console.error("Error in /api/search:", error);
-    res
-      .status(500)
-      .json({
-        error: "An error occurred while fetching data",
-        details: error.message,
-      });
+    res.status(500).json({
+      error: "An error occurred while fetching data",
+      details: error.message,
+    });
+  }
+});
+
+// Add a new route to fetch a single movie by IMDb ID
+app.get("/api/movie/:imdbID", async (req, res) => {
+  try {
+    const { imdbID } = req.params;
+    if (!process.env.OMDB_API_KEY) {
+      throw new Error("OMDB API key is not set");
+    }
+    const apiUrl = `http://www.omdbapi.com/?apikey=${
+      process.env.OMDB_API_KEY
+    }&i=${encodeURIComponent(imdbID)}`;
+    const response = await axios.get(apiUrl);
+    res.json(response.data);
+  } catch (error) {
+    console.error("Error in /api/movie/:imdbID:", error);
+    res.status(500).json({
+      error: "An error occurred while fetching movie data",
+      details: error.message,
+    });
   }
 });
 

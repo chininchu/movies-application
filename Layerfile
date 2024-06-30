@@ -1,20 +1,20 @@
-FROM vm/ubuntu:18.04
+# FROM vm/ubuntu:18.04
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
-RUN apt-get install -y nodejs
+# RUN curl -sL https://deb.nodesource.com/setup_16.x | bash
+# RUN apt-get install -y nodejs
 
-COPY . .
+# COPY . .
 
-RUN npm install
+# RUN npm install
 
-RUN npm run build
+# RUN npm run build
 
-# Set the OMDB API key as an environment variable
-SECRET ENV OMDB_API_KEY
+# # Set the OMDB API key as an environment variable
+# SECRET ENV OMDB_API_KEY
 
-# Verify the API key is set (this will not print the actual key)
-RUN echo "OMDB API Key is set: $([[ -n $OMDB_API_KEY ]] && echo 'Yes' || echo 'No')"
+# # Verify the API key is set (this will not print the actual key)
+# RUN echo "OMDB API Key is set: $([[ -n $OMDB_API_KEY ]] && echo 'Yes' || echo 'No')"
 
-RUN BACKGROUND npm start
+# RUN BACKGROUND npm start
 
-EXPOSE WEBSITE http://localhost:3000
+# EXPOSE WEBSITE http://localhost:3000

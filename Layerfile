@@ -17,4 +17,4 @@ RUN echo "OMDB API Key is set: $([[ -n $OMDB_API_KEY ]] && echo 'Yes' || echo 'N
 
 RUN BACKGROUND npm start
 
-EXPOSE WEBSITE http://localhost:3000
+EXPOSE WEBSITE https://localhost:3000

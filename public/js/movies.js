@@ -1,4 +1,4 @@
-"use-strict";
+"use strict";
 import "../css/movies.css";
 
 const searchInput = document.getElementById("search-input");
@@ -8,8 +8,6 @@ const movieList = document.getElementById("movie-list");
 function showLoadingIndicator() {
   movieList.innerHTML = `<div class="loading">Loading...</div>`;
 }
-
-// Test
 
 function hideLoadingIndicator() {
   const loadingIndicator = document.querySelector(".loading");
@@ -84,9 +82,34 @@ function addToWatchlist(event) {
   }
 }
 
+async function loadRandomMovies() {
+  showLoadingIndicator();
+
+  try {
+    const response = await fetch("/api/random-movies");
+    const movies = await response.json();
+
+    if (movies && movies.length > 0) {
+      displayMovies(movies);
+    } else {
+      movieList.innerHTML =
+        '<div class="no-movies">No random movies found. Try searching for a specific movie.</div>';
+    }
+  } catch (error) {
+    console.error("Error loading random movies:", error);
+    movieList.innerHTML =
+      '<div class="no-movies">An error occurred while loading random movies. Please try again later.</div>';
+  }
+
+  hideLoadingIndicator();
+}
+
 searchBtn.addEventListener("click", searchMovies);
 searchInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     searchMovies();
   }
 });
+
+// Load random movies when the page loads
+document.addEventListener("DOMContentLoaded", loadRandomMovies);

@@ -41,7 +41,6 @@ app.get("/api/search", async (req, res) => {
   }
 });
 
-// Add a new route to fetch a single movie by IMDb ID
 app.get("/api/movie/:imdbID", async (req, res) => {
   try {
     const { imdbID } = req.params;
@@ -62,7 +61,47 @@ app.get("/api/movie/:imdbID", async (req, res) => {
   }
 });
 
-// Handle any requests that don't match the ones above...
+// Updated endpoint for random movies
+app.get("/api/random-movies", async (req, res) => {
+  try {
+    if (!process.env.OMDB_API_KEY) {
+      throw new Error("OMDB API key is not set");
+    }
+
+    // Generate a random search term (you can modify this list as needed)
+    const randomSearchTerms = [
+      "action",
+      "comedy",
+      "drama",
+      "thriller",
+      "sci-fi",
+      "romance",
+    ];
+    const randomTerm =
+      randomSearchTerms[Math.floor(Math.random() * randomSearchTerms.length)];
+
+    const apiUrl = `http://www.omdbapi.com/?apikey=${process.env.OMDB_API_KEY}&s=${randomTerm}&type=movie`;
+    const response = await axios.get(apiUrl);
+
+    if (response.data.Response === "True") {
+      // Randomly select up to 8 movies from the results
+      const randomMovies = response.data.Search.sort(
+        () => 0.5 - Math.random()
+      ).slice(0, 8);
+      res.json(randomMovies);
+    } else {
+      res.status(404).json({ error: "No random movies found" });
+    }
+  } catch (error) {
+    console.error("Error in /api/random-movies:", error);
+    res.status(500).json({
+      error: "An error occurred while fetching random movies",
+      details: error.message,
+    });
+  }
+});
+
+// Handle any requests that don't match the ones above
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });

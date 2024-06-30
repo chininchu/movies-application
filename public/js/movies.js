@@ -9,6 +9,8 @@ function showLoadingIndicator() {
   movieList.innerHTML = `<div class="loading">Loading...</div>`;
 }
 
+// Test
+
 function hideLoadingIndicator() {
   const loadingIndicator = document.querySelector(".loading");
   if (loadingIndicator) {

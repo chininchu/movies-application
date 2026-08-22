@@ -16,8 +16,8 @@ async function loadWatchlist() {
   try {
     for (const imdbID of watchlist) {
       const response = await fetch(
-        `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`
-      );
+  `/.netlify/functions/omdb?i=${encodeURIComponent(imdbID)}`
+);
       const movie = await response.json();
       displayMovie(movie);
     }

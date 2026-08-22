@@ -1,7 +1,7 @@
 exports.handler = async function (event) {
   const search = event.queryStringParameters.s;
   const imdbID = event.queryStringParameters.i;
-  
+
   // Gets your key safely from Netlify's backend environment
   const API_KEY = process.env.OMDB_API_KEY;
 
@@ -19,10 +19,9 @@ exports.handler = async function (event) {
       body: JSON.stringify(data),
     };
   } catch (error) {
-    return { 
-      statusCode: 500, 
-      body: JSON.stringify({ error: "Failed to fetch data from OMDb API." }) 
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: "Failed to fetch data from OMDb API." }),
     };
   }
 };
-

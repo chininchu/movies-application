@@ -22,8 +22,8 @@ async function searchMovies() {
 
   try {
     const response = await fetch(
-  `/.netlify/functions/omdb?s=${encodeURIComponent(searchTerm)}`
-);
+      `/.netlify/functions/omdb?s=${encodeURIComponent(searchTerm)}`,
+    );
     const data = await response.json();
 
     if (data.Response === "True") {

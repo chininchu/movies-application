@@ -1,1 +1,1 @@
-const API_KEY = "YOUR_API_KEY_PLACEHOLDER";
+const API_KEY = "64be1cef";

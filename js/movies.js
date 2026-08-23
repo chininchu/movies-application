@@ -7,7 +7,6 @@ function showLoadingIndicator() {
   movieList.innerHTML = `<div class="loading">Loading...</div>`;
 }
 
-
 function hideLoadingIndicator() {
   const loadingIndicator = document.querySelector(".loading");
   if (loadingIndicator) {
@@ -68,14 +67,14 @@ function displayMovies(movies) {
 }
 
 function addToWatchlist(event) {
-  const imdbID = event.target.getAttribute("data-imdbid");
+  const imdbID = event.currentTarget.dataset.imdbid;
   let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
 
   if (!watchlist.includes(imdbID)) {
     watchlist.push(imdbID);
     localStorage.setItem("watchlist", JSON.stringify(watchlist));
-    event.target.textContent = "Added to Watchlist";
-    event.target.disabled = true;
+    event.currentTarget.textContent = "Added to Watchlist";
+    event.currentTarget.disabled = true;
   } else {
     alert("This movie is already in your watchlist.");
   }

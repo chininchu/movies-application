@@ -54,7 +54,7 @@ function displayMovie(movie) {
 }
 
 function removeFromWatchlist(event) {
-  const imdbID = event.target.getAttribute("data-imdbid");
+  const imdbID = event.target.dataset.imdbid;
   let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
 
   watchlist = watchlist.filter((id) => id !== imdbID);

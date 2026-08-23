@@ -1,4 +1,4 @@
-exports.handler = async function (event) {
+export async function handler(event) {
   const search = event.queryStringParameters.s;
   const imdbID = event.queryStringParameters.i;
 
@@ -19,9 +19,10 @@ exports.handler = async function (event) {
       body: JSON.stringify(data),
     };
   } catch (error) {
+    console.error("Failed to fetch data from OMDb API:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Failed to fetch data from OMDb API." }),
     };
   }
-};
+}

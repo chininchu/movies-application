@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Start Netlify Dev",
+      "type": "shell",
+      "command": "npx --yes netlify-cli dev --port 8080 --no-open",
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "netlify",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Starting Netlify Dev Server|Netlify Dev server listening",
+          "endsPattern": "Netlify Dev server listening|\u001b\\[32mReady"
+        }
+      }
+    }
+  ]
+}

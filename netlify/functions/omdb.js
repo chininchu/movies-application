@@ -5,6 +5,14 @@ export async function handler(event) {
   // Gets your key safely from Netlify's backend environment
   const API_KEY = process.env.OMDB_API_KEY;
 
+  if (!API_KEY) {
+    return {
+      statusCode: 500,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ error: "OMDB_API_KEY is not configured." }),
+    };
+  }
+
   let url = `https://www.omdbapi.com/?apikey=${API_KEY}`;
   if (search) url += `&s=${encodeURIComponent(search)}`;
   if (imdbID) url += `&i=${encodeURIComponent(imdbID)}`;

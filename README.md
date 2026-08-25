@@ -28,15 +28,30 @@ The frontend is made with HTML, CSS, and vanilla JavaScript. Movie data comes fr
    npm install -g netlify-cli
    ```
 
-2. Add an `OMDB_API_KEY` environment variable to your Netlify site or local Netlify configuration.
+2. Create `movies-application/.env` with your local OMDb key:
+
+   ```text
+   OMDB_API_KEY=your_omdb_api_key
+   ```
+
+   This file is ignored by Git. Do not put the key in `index.html` or either browser script.
 
 3. Start the local Netlify development server:
 
    ```bash
-   npx --yes netlify-cli dev --port 8080 --no-open
+   cd movies-application && npx --yes netlify-cli dev --port 8080 --no-open
    ```
 
 4. Open `http://localhost:8080` in a browser.
+
+## Deploy to Netlify
+
+1. Create or open the Netlify site connected to this repository.
+2. Set the site's **Base directory** to `movies-application`.
+3. Add `OMDB_API_KEY` under **Project configuration > Environment variables** for the deploy context you use, such as Production.
+4. Trigger a deploy. Netlify reads `netlify.toml`, publishes this directory, and discovers `netlify/functions/omdb.js` automatically.
+
+The production site must be opened through its Netlify URL. Opening `index.html` directly with a `file://` URL bypasses Netlify Functions, so `/.netlify/functions/omdb` cannot work.
 
 ## Project Structure
 

@@ -28,7 +28,14 @@ async function searchMovies() {
     const response = await fetch(
       `/.netlify/functions/omdb?s=${encodeURIComponent(searchTerm)}`,
     );
+    if (!response.ok) {
+      throw new Error(`Movie service returned HTTP ${response.status}`);
+    }
     const data = await response.json();
+
+    if (data.error) {
+      throw new Error(data.error);
+    }
 
     if (data.Response === "True") {
       displayMovies(data.Search);
@@ -52,7 +59,7 @@ function displayMovies(movies) {
     movieItem.classList.add("movie-item");
     movieItem.innerHTML = `
             <img src="${
-              movie.Poster !== "N/A" ? movie.Poster : "placeholder.png"
+              movie.Poster !== "N/A" ? movie.Poster : "placeholder.svg"
             }" alt="${movie.Title}" class="movie-img">
             <div class="movie-info">
                 <h2>${movie.Title}</h2>
@@ -63,6 +70,14 @@ function displayMovies(movies) {
             </div>
         `;
     movieList.appendChild(movieItem);
+    const poster = movieItem.querySelector(".movie-img");
+    poster.addEventListener(
+      "error",
+      () => {
+        poster.src = "placeholder.svg";
+      },
+      { once: true },
+    );
   });
 
   document.querySelectorAll(".add-to-watchlist").forEach((button) => {

@@ -22,7 +22,15 @@ async function loadWatchlist() {
       const response = await fetch(
         `/.netlify/functions/omdb?i=${encodeURIComponent(imdbID)}`,
       );
+      if (!response.ok) {
+        throw new Error(`Movie service returned HTTP ${response.status}`);
+      }
       const movie = await response.json();
+      if (movie.error || movie.Response === "False") {
+        throw new Error(
+          movie.error || movie.Error || "Movie details unavailable",
+        );
+      }
       displayMovie(movie);
     }
   } catch (error) {
@@ -39,7 +47,7 @@ function displayMovie(movie) {
   movieElement.classList.add("movie-item");
   movieElement.innerHTML = `
         <img src="${
-          movie.Poster !== "N/A" ? movie.Poster : "placeholder.png"
+          movie.Poster !== "N/A" ? movie.Poster : "placeholder.svg"
         }" alt="${movie.Title}" class="movie-img">
         <div class="movie-info">
             <h2>${movie.Title}</h2>
@@ -51,6 +59,14 @@ function displayMovie(movie) {
         </div>
     `;
   watchlistSection.appendChild(movieElement);
+  const poster = movieElement.querySelector(".movie-img");
+  poster.addEventListener(
+    "error",
+    () => {
+      poster.src = "placeholder.svg";
+    },
+    { once: true },
+  );
 
   movieElement
     .querySelector(".remove-from-watchlist")

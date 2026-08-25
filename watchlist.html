@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/movies.css" />
   </head>
   <body>
+    <!-- Shared site header and page navigation. -->
     <header>
       <h1>Movie Watchlist</h1>
       <nav>
@@ -14,9 +15,11 @@
         <a href="watchlist.html" class="active">My Watchlist</a>
       </nav>
     </header>
+    <!-- Saved movies are rendered here by watchlist.js. -->
     <main>
       <section id="watchlist-section" class="movie-container"></section>
     </main>
+    <!-- Watchlist behavior is kept separate from the page markup. -->
     <script src="js/watchlist.js"></script>
   </body>
 </html>

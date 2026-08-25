@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/movies.css" />
   </head>
   <body>
+    <!-- Shared site header and page navigation. -->
     <header>
       <h1>Movie Watchlist</h1>
       <nav>
@@ -15,6 +16,7 @@
         <a href="watchlist.html">My Watchlist</a>
       </nav>
     </header>
+    <!-- Search controls and dynamically rendered OMDb results. -->
     <main>
       <section id="search-section">
         <label class="visually-hidden" for="search-input"
@@ -29,6 +31,7 @@
       </section>
       <section id="movie-list" class="movie-container"></section>
     </main>
+    <!-- Search behavior is kept separate from the page markup. -->
     <script src="js/movies.js"></script>
   </body>
 </html>

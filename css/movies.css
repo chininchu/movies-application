@@ -1,4 +1,4 @@
-/* movies.css */
+/* Shared layout and visual styles for both application pages. */
 body {
   font-family: "Helvetica Neue", sans-serif;
   margin: 0;
@@ -12,6 +12,7 @@ body {
   min-height: 100vh;
 }
 
+/* Site header and page navigation */
 header {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
@@ -36,6 +37,7 @@ main {
   padding: 2rem;
 }
 
+/* Search controls */
 #search-section {
   display: flex;
   justify-content: center;
@@ -72,6 +74,7 @@ main {
   cursor: pointer;
 }
 
+/* Movie cards and their content */
 .movie-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));

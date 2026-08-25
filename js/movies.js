@@ -1,8 +1,11 @@
-// movies.js
+// Handles movie searches and adding search results to the watchlist.
+"use strict";
+
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const movieList = document.getElementById("movie-list");
 
+// Replace the current results while the Netlify Function is working.
 function showLoadingIndicator() {
   movieList.innerHTML = `<div class="loading">Loading...</div>`;
 }
@@ -21,6 +24,7 @@ async function searchMovies() {
   showLoadingIndicator();
 
   try {
+    // The serverless function keeps the OMDb API key out of browser code.
     const response = await fetch(
       `/.netlify/functions/omdb?s=${encodeURIComponent(searchTerm)}`,
     );
@@ -68,6 +72,7 @@ function displayMovies(movies) {
 
 function addToWatchlist(event) {
   const imdbID = event.currentTarget.dataset.imdbid;
+  // Only IMDb IDs are stored so complete movie details can be fetched later.
   let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
 
   if (!watchlist.includes(imdbID)) {
